@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1207061_m459qwwp0r.css">
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0
+        }
+
+        .wrap, body, html {
+            height: 100%;
+            font-size: 13px;
+            font-family: arial, "微软雅黑", sans-serif;
+            background: #fff
+        }
+
+        img, li, ul {
+            border: none
+        }
+
+        #preview {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0
+        }
+
+        .rotate-btn {
+            opacity: 0;
+            position: fixed;
+            right: 83px;
+            top: 60px;
+            z-index: 999;
+            background: #616161;
+            color: #F2F2F2;
+            font-weight: 700;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            cursor: pointer;
+            transition: 100ms all linear;
+        }
+    </style>
+</head>
+
+<body id="body">
+<iframe id="preview" width="100%" height="100%"></iframe>
+<i id="rotate-btn" class="iconfont iconzhongzhi rotate-btn" onclick="doRotate()"></i>
+
+<script>
+    var rotateDeg = 0;
+
+    function doRotate() {
+        rotateDeg += 90;
+        document.getElementById("preview").style.transform = `rotate(${rotateDeg}deg)`;
+    }
+
+    (function () {
+        document.getElementById("body").addEventListener("mouseover", () => {
+            document.getElementById("rotate-btn").style.opacity = "1";
+        });
+        document.getElementById("body").addEventListener("mouseleave", () => {
+            document.getElementById("rotate-btn").style.opacity = "0";
+        });
+
+        const paramsStr = window.location.search.split("?")[1];
+        const params = paramsStr.split("&");
+        const id = params[0].split("=")[1];
+        const view = params[1].split("=")[1];
+        const suffix = params[2].split("=")[1];
+        if (/\.(png|jpg|jpeg|bmp)$/gi.test(suffix)) {
+            document.getElementById("rotate-btn").style.display = "block";
+        } else {
+            document.getElementById("rotate-btn").style.display = "none";
+        }
+        document.getElementById("preview").src = "/api/processFile/downloadProcessFile?id=" + id + "&view=1"
+    })()
+
+</script>
+</body>
+
+</html>

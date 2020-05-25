@@ -1,0 +1,82 @@
+.without-title {
+  .el-dialog .el-dialog__header {
+    padding-top: 30px;
+  }
+}
+
+.el-dialog {
+
+  .el-dialog__header {
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    overflow: hidden;
+
+    .el-dialog__title {
+      font-size: 16px;
+      font-family: PingFangSC-Medium;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.85);
+      line-height: 24px;
+    }
+
+    .el-dialog__headerbtn {
+      top: 20px;
+      right: 30px;
+      font-size: 18px;
+    }
+  }
+
+  .el-dialog__body {
+    padding: 30px 20px;
+
+    .section-container {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+      margin-bottom: 20px;
+    }
+
+    .el-form {
+      padding: 0 45px;
+    }
+  }
+
+  .el-dialog__footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.09);
+    padding: 16px 0;
+    width: 100%;
+
+    .dialog-footer {
+      padding: 0 24px;
+    }
+
+    .el-button {
+      width: 65px;
+      height: 32px;
+      line-height: 32px;
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  ///deep/ button[type="button"]:not(.el-dialog__headerbtn) {
+  //padding: 9px 15px;
+  //font-size: 12px;
+  //border-radius: 3px;
+  //}
+}
+
+.el-dialog--center {
+
+  .el-dialog__body {
+    padding: 10px 40px 20px 40px !important;
+    color: #606266;
+    font-size: 14px;
+
+    .el-form-item--mini {
+      margin-bottom: 10px;
+    }
+
+    .el-form {
+      padding-right: 30px;
+    }
+  }
+}

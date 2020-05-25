@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./dist/anyshare.desktop.css">
+    <!--[if IE 8]>
+    <script src="./libs/es5-shim.min.js"></script>
+    <script src="./libs/es5-sham.custom.min.js"></script>
+    <![endif]-->
+    <script src="./libs/es6-shim.min.js"></script>
+    <script src="./libs/es6-sham.min.js"></script>
+    <script src="./libs/es6-promise.auto.min.js"></script>
+    <script src="./libs/es7-shim.min.js"></script>
+    <script src="./libs/hls.js/dist/hls.min.js"></script>
+    <script src="./libs/pdfjs-dist/build/pdf.combined.js"></script>
+    <script src="./dist/anyshare.desktop.js"></script>
+
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0
+        }
+
+        .wrap, body, html {
+            height: 100%;
+            font-size: 13px;
+            font-family: arial, "微软雅黑", sans-serif;
+            background: #fff
+        }
+
+        img, li, ul {
+            border: none
+        }
+
+        #preview {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0
+        }
+    </style>
+
+    <!-- 设置PDFJS -->
+    <script type="text/javascript">
+        PDFJS.cMapUrl = './libs/pdfjs-dist/cmaps/';
+        PDFJS.cMapPacked = true;
+        PDFJS.workerSrc = './libs/pdfjs-dist/build/pdf.worker.entry.js';
+    </script>
+</head>
+
+<body>
+111
+<div id="preview"></div>
+
+<script>
+    (function () {
+        const paramsStr = window.location.search.split("?")[1];
+        const params = paramsStr.split("&");
+        const docId = params[0].split("=")[1];
+        const suffix = params[1].split("=")[1];
+        const tokenId = params[2].split("=")[1];
+        const userId = params[3].split("=")[1];
+
+        var AS = AnyShare({
+            locale: 'zh-cn',
+            host: 'http://172.25.147.132', // 需替换成实际的部署地址
+            EACPPort: 9998, // 如果部署地址使用http，则填写9998
+            EFSPPort: 9123, // 如果部署地址使用http，则填写9123
+            userid: function () {
+                // 替换用户自己的userid
+                // return '76e414a8-785c-11e9-a0aa-00163e010158'
+                return userId
+            },
+            tokenid: function () {
+                // 替换用户自己的tokenid
+                return tokenId
+            },
+        })
+
+        AS.Components.Preview({
+                doc: {
+                    docid: docId,
+                    name: "fileName" + suffix
+                },
+                canEdit: false,
+            },
+            document.querySelector('#preview')
+        )
+        /* }
+     }, 1000)*/
+    })()
+
+</script>
+</body>
+
+</html>

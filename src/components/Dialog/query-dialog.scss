@@ -1,0 +1,43 @@
+@import '../../styles/variables.scss';
+.query_dialog
+{  
+  &:not(.move){
+    transition-property: width , height, top, left; 
+    transition-duration: 0.3s;
+  }
+  position: absolute;
+  z-index: 1000 !important; // 防止弹框遮罩层覆盖侧边栏，无法点击
+  top:50px;
+  width: 50%;
+  left: 25%;
+  overflow: hidden;
+  .el-dialog__header {
+    padding: 10px;
+    border-top:solid 5px $themeHoverA;
+    background: #eef6ff;
+    overflow: hidden;
+    > span {
+      color: #333;
+      font-size: 14px;
+    }
+  }
+  .el-dialog__footer {
+    border-top: solid 1px #dcdfe6;
+    padding: 10px;    
+  }
+  &.full {
+    .el-scrollbar {
+      height:80% !important;
+    }
+  }
+  .query_dialog_tool {
+    .iconfont {
+      cursor: pointer;
+    }
+  }
+  /deep/ button[type="button"] {
+    padding: 9px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+}

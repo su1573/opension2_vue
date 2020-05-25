@@ -1,0 +1,22 @@
+.el-dialog {
+  .el-dialog__header {
+    padding: 10px;
+    border-top:solid 5px $themeBg;
+    background: #eef6ff;
+    overflow: hidden;
+  }
+  .el-dialog__footer {
+    border-top: solid 1px #dcdfe6;
+    padding: 10px;    
+  }
+  .el-dialog__body {
+    padding: 15px 10px;
+    color: #606266;
+    font-size: 14px;
+  }
+  /deep/ button[type="button"]:not(.el-dialog__headerbtn) {
+    padding: 9px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+}

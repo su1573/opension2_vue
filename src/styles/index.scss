@@ -1,0 +1,273 @@
+@import './variables.scss';
+@import './theme.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './table.scss';
+@import './pagination.scss';
+@import './dialog.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 14px;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 400;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+//main-container全局样式
+.app-main {
+  min-height: 100%;
+  //padding: 5px;
+  background: #fff;
+  // margin-top: $headerHeight+50; //header+menubar+nav的高度 40+30+85
+}
+
+// 公共样式
+.mark {
+  color: red;
+
+  input[type=text], textarea {
+    color: red;
+  }
+}
+
+.markTable {
+  border: 1px solid red !important;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.el-scrollbar {
+  height: 100%;
+}
+
+.el-scrollbar__wrap {
+  overflow: scroll;
+  overflow-x: auto
+}
+
+::-webkit-scrollbar {
+  background-color: white;
+}
+
+/*定义滚动条轨道*/
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+/*定义滑块*/
+::-webkit-scrollbar-thumb {
+  background-color: #eeeeee;
+}
+
+/*滑块效果*/
+::-webkit-scrollbar-thumb:hover {
+  background: #dddddd;
+}
+
+.iconfont {
+  outline: none;
+}
+
+.el-button--gradient {
+  color: #fff !important;
+  border: none !important;
+
+  &:hover, &:active {
+    color: #fff !important;
+    font-weight: bold !important;
+  }
+}
+
+.el-select, .el-select.highlight {
+  input:focus {
+    border: 1px solid $themeColor !important;
+  }
+}
+
+.el-select.highlight {
+  input {
+    border: 1px solid $themeColor !important;
+    color: $themeColor;
+
+    &::-webkit-input-placeholder {
+      color: $themeColor;
+    }
+
+    &:-moz-placeholder {
+      color: $themeColor;
+    }
+
+    &::-ms-input-placeholder {
+      color: $themeColor;
+    }
+  }
+}
+
+.el-input {
+  input:hover, input:focus {
+    border: 1px solid $themeColor;
+
+    &::-webkit-input-placeholder {
+      color: $themeColor;
+    }
+
+    &:-moz-placeholder {
+      color: $themeColor;
+    }
+
+    &::-ms-input-placeholder {
+      color: $themeColor;
+    }
+
+  }
+}
+
+.iconzuocedaohanglanjiaobiao {
+  position: relative;
+
+  &:before {
+    font-size: 1px;
+    position: absolute;
+    left: 10px;
+    transform: scale(0.8, 1.1);
+  }
+}
+
+.section-title {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 0 0 16px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+
+  &::before {
+    content: "";
+    height: 16px;
+    margin-right: 10px;
+  }
+}
+
+.row-info {
+  background: #eee !important;
+
+  .el-form-item.el-form-item {
+    margin-bottom: 0 !important;
+  }
+}
+
+.fixed-container {
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  height: 60px;
+  right: 25px;
+
+  .el-button {
+    position: fixed;
+    bottom: 10px;
+    right: 45px;
+    width: 84px;
+    height: 38px;
+  }
+}
+
+span[class^="info-"] {
+  &:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  &.info-danger:before {
+    background: #F5222D;
+  }
+
+  &.info-primary:before {
+    background: #52C41A;
+  }
+}
